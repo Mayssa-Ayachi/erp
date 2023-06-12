@@ -5,6 +5,8 @@ declare(strict_types=1);
 use Illuminate\Support\Facades\Route;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
 use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
+use App\Http\Controllers\UsersController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +27,9 @@ Route::middleware([
 ])->group(function () {
     Route::get('/', function () {
         dd(\App\Models\User::all());
-        return 'This is your multi-tenant application. The id of the current tenant is ' . tenant('id');
     });
+
+    Route::get('users/create',[UsersController::class,'create'])->name('users.create');
+    Route::post('users/store',[UsersController::class,'store'])->name('users.store');
+
 });
