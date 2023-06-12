@@ -16,7 +16,7 @@ Class UsersController extends Controller
         User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->email)
+            'password' => Hash::make($request->password)
         ]);
         
         return back();
