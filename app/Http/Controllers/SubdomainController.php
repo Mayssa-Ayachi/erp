@@ -10,6 +10,7 @@ Class SubdomainController extends Controller
     public function store(Request $request){
         $tenant = Tenant::create(['id' => $request->subdomain]);
         $tenant->domains()->create(['domain' => $request->subdomain .'.localhost']);
+        $tenant->tenantpackages()->create(['tenant_package' => $request->package]);
         return back();
     }
 }

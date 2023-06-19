@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SubdomainController;
+use App\Http\Controllers\PackageController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,8 +15,14 @@ use App\Http\Controllers\SubdomainController;
 |
 */
 
-Route::get('/', function () {
+Route::get('/commercial', function () {
     return view('subdomain');
 });
 
 Route::post('subdomain',[SubdomainController::class,'store'])->name('subdomain.store');
+
+Route::get('/support/add_package', function () {
+    return view('packages');
+});
+
+Route::post('/support/add_package',[PackageController::class,'store'])->name('package.store');
