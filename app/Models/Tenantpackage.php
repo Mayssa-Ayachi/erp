@@ -8,6 +8,6 @@ class Tenantpackage extends Model
 {
     protected $table = 'tenantpackages';
 
-    protected $fillable = ['teant_id',
+    protected $fillable = ['tenant_id',
     'tenant_package'];
 }

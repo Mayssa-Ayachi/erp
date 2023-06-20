@@ -14,13 +14,15 @@
         <div class="form-group">
           <label for="subdomain">Subdomain</label>
           <input type="text" id="subdomain" name="subdomain" class="form-control">
-
-          <label for="package">Package</label>
-          <input type="text" id="package" name="package" class="form-control">
+          <label for="subdomain">Choose a package</label>
+          <select id="package" name="package">
+            @foreach ($package as $package)
+              <option value="{{ $package->name }}">{{ $package->name }}</option>
+            @endforeach
+          </select>
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
   </div>
-</div>  
 </body>
 </html>

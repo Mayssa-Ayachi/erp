@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SubdomainController;
 use App\Http\Controllers\PackageController;
+use App\Http\Controllers\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,11 +19,22 @@ use App\Http\Controllers\PackageController;
 Route::get('/commercial', function () {
     return view('subdomain');
 });
+Route::get('/commercial',[SubdomainController::class,'showForm'])->name('subdomain.showForm');
 
 Route::post('subdomain',[SubdomainController::class,'store'])->name('subdomain.store');
 
-Route::get('/support/add_package', function () {
+Route::get('/support/add_package',[PackageController::class,'showaddpackage'])->name('package.showaddpackage');
+Route::post('/support/add_package',[PackageController::class,'store'])->name('package.store');
+
+Route::get('/support/packages', function () {
     return view('packages');
 });
+Route::get('/support/packages',[PackageController::class,'show'])->name('package.show');
 
-Route::post('/support/add_package',[PackageController::class,'store'])->name('package.store');
+Route::get('/finance/add_payment',[PaymentController::class,'showpayment'])->name('payment.showpayment');
+Route::get('/finance/add_payment',[PaymentController::class,'showtenant'])->name('payment.showtenant');
+Route::get('/finance/add_payment',[PaymentController::class,'showpackage'])->name('payment.showpackage');
+Route::post('/finance/add_payment',[PaymentController::class,'store'])->name('payment.store');
+
+Route::get('/finance/payments',[PaymentController::class,'showlistpayment'])->name('payment.showlistpayment');
+Route::get('/finance/payments',[PaymentController::class,'show'])->name('payment.show');

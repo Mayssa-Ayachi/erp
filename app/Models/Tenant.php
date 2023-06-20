@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use App\Models\Package;
+use App\Models\Tenantpackage;
 
 use Stancl\Tenancy\Database\Models\Tenant as BaseTenant;
 use Stancl\Tenancy\Contracts\TenantWithDatabase;
@@ -12,9 +12,9 @@ use Stancl\Tenancy\Database\Concerns\HasDomains;
 class Tenant extends BaseTenant implements TenantWithDatabase
 {
     use HasDatabase, HasDomains;
-    public function packages()
+    public function tenantpackages()
     {
-        return $this->hasMany(Package::class);
+        return $this->hasMany(Tenantpackage::class);
     }
 
 }

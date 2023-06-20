@@ -9,7 +9,18 @@ Class PackageController extends Controller
 {
     public function store(Request $request){
         Packagedetails::create(['name' => $request->package,
-        'price' => $request->price]);
+        'price' => $request->price,
+        'description' => $request->description]);
         return back();
+    }
+
+    public function showaddpackage(){
+        return view('addpackages');
+    }
+    
+    public function show()
+    {
+        $Package = Packagedetails::all(); 
+        return view('packages', ['package' => $Package]);
     }
 }

@@ -6,20 +6,28 @@
 </head>
 <body>
 
-  
-    <div class="card-body">
-      <form  action="{{ route('package.store') }}" method="post">
-       @csrf
-        <div class="form-group">
-          <label for="package">Package</label>
-          <input type="text" id="package" name="package" class="form-control">
-
-          <label for="price">Price</label>
-          <input type="text" id="price" name="price" class="form-control">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-  </div>
+@csrf
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Price</th>
+    </tr>
+  </thead>
+  <tbody>
+        @foreach($package as $package)
+        <tr>
+            <td>{{ $package->id }}</td>
+            <td>{{ $package->name }}</td>
+            <td>{{ $package->description }}</td>
+            <td>{{ $package->price }}</td>
+        </tr>
+        @endforeach
+    </tbody>
+</table>
+<a href="{{ route('package.showaddpackage') }}" class="btn btn-primary">Add a package</a>
 </div>  
 </body>
 </html>

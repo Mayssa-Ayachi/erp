@@ -9,5 +9,7 @@ class Packagedetails extends Model
     protected $table = 'packagesdetails';
 
     protected $fillable = ['name',
-    'price'];
+    'price',
+    'description'];
 }
+

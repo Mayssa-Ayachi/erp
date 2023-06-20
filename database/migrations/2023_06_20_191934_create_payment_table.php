@@ -1,10 +1,10 @@
-<?php 
+<?php
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTenantpackagesTable extends Migration
+class CreatePaymentTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,16 @@ class CreateTenantpackagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('tenantpackages', function (Blueprint $table) {
+        Schema::create('payment', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('tenant_package');
+            $table->string('package');
             $table->string('tenant_id');
+            $table->string('paid');
+            $table->string('type');
+            $table->date('start_access');
+            $table->date('end_access');
             $table->timestamps();
-            $table->foreign('tenant_package')->references('name')->on('packagesdetails')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreign('package')->references('name')->on('packagesdetails')->onUpdate('cascade')->onDelete('cascade');
             $table->foreign('tenant_id')->references('id')->on('tenants')->onUpdate('cascade')->onDelete('cascade');
         });
     }
@@ -30,6 +34,8 @@ class CreateTenantpackagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tenantpackages');
+        Schema::table('payment', function (Blueprint $table) {
+            //
+        });
     }
-}
+};
