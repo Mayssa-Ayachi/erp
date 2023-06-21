@@ -33,15 +33,18 @@ Class PaymentController extends Controller
         return view('payment', ['payment' => $Payment]);
     }
 
-    public function showtenant()
-    {
-        $Tenant = Tenant::all(); 
-        return view('addpayment', ['tenant' => $Tenant]);
-    }
-
-    public function showpackage()
+    public function showinfo()
     {
         $Package = Packagedetails::all(); 
-        return view('addpayment', ['package' => $Package]);
+        $Tenant = Tenant::all(); 
+        return view('addpayment', ['package' => $Package, 'tenant' => $Tenant]);
+    }
+
+    public function destroy($id)
+    {
+        $Payment = Payment::findOrFail($id);
+        $Payment->delete();
+
+        return redirect()->back()->with('success', 'Payment deleted successfully.');
     }
 }

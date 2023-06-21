@@ -11,13 +11,13 @@
       <form  action="{{ route('payment.store') }}" method="post">
        @csrf
        <div class="form-group">
+
           <label for="tenant_id">Tenant</label>
           <select id="tenant_id" name="tenant_id">
             @foreach ($tenant as $tenant)
               <option value="{{ $tenant->id }}">{{ $tenant->id }}</option>
             @endforeach
           </select>
-          <input type="text" id="tenant_id" name="tenant_id" class="form-control">
 
           <label for="package">Package</label>
           <select id="package" name="package">
@@ -30,7 +30,10 @@
           <input type="text" id="type" name="type" />
 
           <label for="paid">Paid</label>
-          <input type="text" id="paid" name="paid" />
+          <select id="paid" name="paid">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
 
           <label for="start">Start access</label>
           <input type="date" id="start" name="start">

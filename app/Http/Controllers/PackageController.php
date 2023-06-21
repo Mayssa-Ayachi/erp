@@ -23,4 +23,12 @@ Class PackageController extends Controller
         $Package = Packagedetails::all(); 
         return view('packages', ['package' => $Package]);
     }
+
+    public function destroy($id)
+    {
+        $Package = Packagedetails::findOrFail($id);
+        $Package->delete();
+
+        return redirect()->back()->with('success', 'Package deleted successfully.');
+    }
 }

@@ -23,6 +23,13 @@
             <td>{{ $package->name }}</td>
             <td>{{ $package->description }}</td>
             <td>{{ $package->price }}</td>
+            <td>
+              <form action="{{ route('package.destroy', $package->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-primary">Delete</button>
+                </form>
+            </td>
         </tr>
         @endforeach
     </tbody>

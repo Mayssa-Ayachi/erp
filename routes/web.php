@@ -30,11 +30,12 @@ Route::get('/support/packages', function () {
     return view('packages');
 });
 Route::get('/support/packages',[PackageController::class,'show'])->name('package.show');
+Route::delete('/support/packages/{id}', [PackageController::class, 'destroy'])->name('package.destroy');
 
 Route::get('/finance/add_payment',[PaymentController::class,'showpayment'])->name('payment.showpayment');
-Route::get('/finance/add_payment',[PaymentController::class,'showtenant'])->name('payment.showtenant');
-Route::get('/finance/add_payment',[PaymentController::class,'showpackage'])->name('payment.showpackage');
+Route::get('/finance/add_payment',[PaymentController::class,'showinfo'])->name('payment.showinfo');
 Route::post('/finance/add_payment',[PaymentController::class,'store'])->name('payment.store');
 
 Route::get('/finance/payments',[PaymentController::class,'showlistpayment'])->name('payment.showlistpayment');
 Route::get('/finance/payments',[PaymentController::class,'show'])->name('payment.show');
+Route::delete('/finance/payments/{id}', [PaymentController::class, 'destroy'])->name('payment.destroy');

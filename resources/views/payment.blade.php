@@ -27,11 +27,18 @@
             <td>{{ $payment->paid }}</td>
             <td>{{ $payment->start_access }}</td>
             <td>{{ $payment->end_access }}</td>
+            <td>
+              <form action="{{ route('payment.destroy', $payment->id) }}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-primary">Delete</button>
+                </form>
+            </td>
         </tr>
         @endforeach
     </tbody>
 </table>
-<a href="{{ route('payment.showpackage') }}" class="btn btn-primary">Add a payment</a>
+<a href="{{ route('payment.showinfo') }}" class="btn btn-primary">Add a payment</a>
 </div>  
 </body>
 </html>
