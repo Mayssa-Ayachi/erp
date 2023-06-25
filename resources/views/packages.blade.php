@@ -7,7 +7,15 @@
 <body>
 
 @csrf
-<table class="table">
+
+<style>
+  .custom-table {
+    width: 50%; 
+    margin: auto;
+  }
+</style> 
+
+<table class="table custom-table">
   <thead>
     <tr>
       <th scope="col">ID</th>
@@ -27,14 +35,14 @@
               <form action="{{ route('package.destroy', $package->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-primary">Delete</button>
+                <button type="submit" class="btn btn-dark">Delete</button>
                 </form>
             </td>
         </tr>
         @endforeach
     </tbody>
 </table>
-<a href="{{ route('package.showaddpackage') }}" class="btn btn-primary">Add a package</a>
+<a href="{{ route('package.showaddpackage') }}" class="btn btn-light ml-4">Add a package</a>
 </div>  
 </body>
 </html>

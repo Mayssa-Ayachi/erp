@@ -7,7 +7,14 @@
 <body>
 
 @csrf
-<table class="table">
+<style>
+  .custom-table {
+    width: 50%; 
+    margin: auto;
+  }
+</style> 
+
+<table class="table custom-table">
   <thead>
     <tr>
       <th scope="col">Tenant</th>
@@ -31,14 +38,14 @@
               <form action="{{ route('payment.destroy', $payment->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-primary">Delete</button>
+                <button type="submit" class="btn btn-dark">Delete</button>
                 </form>
             </td>
         </tr>
         @endforeach
     </tbody>
 </table>
-<a href="{{ route('payment.showinfo') }}" class="btn btn-primary">Add a payment</a>
+<a href="{{ route('payment.showinfo') }}" class="btn btn-light ml-4">Add a payment</a>
 </div>  
 </body>
 </html>
