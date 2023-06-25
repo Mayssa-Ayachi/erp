@@ -20,4 +20,9 @@ Class SubdomainController extends Controller
         $Package = Packagedetails::all(); 
         return view('subdomain', ['package' => $Package]);
     }
+
+    public function showpage()
+    {
+        return view('subdomain');
+    }
 }

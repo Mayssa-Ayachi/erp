@@ -30,10 +30,12 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-    
+
+    Route::get('/commercial',[SubdomainController::class,'showpage'])->name('subdomain.showpage');
     Route::get('/commercial',[SubdomainController::class,'showForm'])->name('subdomain.showForm');
     Route::post('subdomain',[SubdomainController::class,'store'])->name('subdomain.store');
 
+    Route::get('/support/packages',[PackageController::class,'showpage'])->name('package.showpage');
     Route::get('/support/packages',[PackageController::class,'show'])->name('package.show');
     Route::get('/support/add_package',[PackageController::class,'showaddpackage'])->name('package.showaddpackage');
     Route::post('/support/add_package',[PackageController::class,'store'])->name('package.store');
@@ -55,9 +57,6 @@ require __DIR__.'/auth.php';
 --------------------------------------------------------------------------
 */
 
-Route::get('/commercial', function () {
-    return view('subdomain');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 //Route::get('/commercial',[SubdomainController::class,'showForm'])->name('subdomain.showForm');
 
@@ -65,11 +64,6 @@ Route::get('/commercial', function () {
 
 //Route::get('/support/add_package',[PackageController::class,'showaddpackage'])->name('package.showaddpackage');
 //Route::post('/support/add_package',[PackageController::class,'store'])->name('package.store');
-
-
-Route::get('/support/packages', function () {
-    return view('packages');
-})->middleware(['auth', 'verified'])->name('dashboard');
 
 //Route::get('/support/packages',[PackageController::class,'show'])->name('package.show');
 //Route::delete('/support/packages/{id}', [PackageController::class, 'destroy'])->name('package.destroy');

@@ -24,6 +24,11 @@ Class PackageController extends Controller
         return view('packages', ['package' => $Package]);
     }
 
+    public function showpage()
+    {
+        return view('packages');
+    }
+
     public function destroy($id)
     {
         $Package = Packagedetails::findOrFail($id);
