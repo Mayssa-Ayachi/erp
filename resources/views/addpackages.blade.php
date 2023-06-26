@@ -6,7 +6,14 @@
 </head>
 <body>
 
-  
+<style>
+  .card {
+    width: 50%; 
+    margin: auto;
+    margin-top: 20vh;
+  }
+</style>  
+    <div class="card">
     <div class="card-body">
       <form  action="{{ route('package.store') }}" method="post">
        @csrf
@@ -20,7 +27,7 @@
           <label for="description">Description</label>
           <input type="text" name="description" />
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-dark">Submit</button>
       </form>
   </div>
 </div>  
