@@ -44,10 +44,10 @@
     <x-input-label for="role" :value="__('Role')" />
     <select id="role" name="role" class="block mt-1 w-full" required>
         <option value="" selected disabled>{{ __('Choisir un rôle') }}</option>
-        <option value="role1" {{ old('role') == 'admin' ? 'selected' : '' }}>Admin</option>
-        <option value="role2" {{ old('role') == 'support' ? 'selected' : '' }}>Support</option>
-        <option value="role3" {{ old('role') == 'commercial' ? 'selected' : '' }}>Commercial</option>
-        <option value="role3" {{ old('role') == 'financier' ? 'selected' : '' }}>Financier</option>
+        <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Admin</option>
+        <option value="support" {{ old('role') == 'support' ? 'selected' : '' }}>Support</option>
+        <option value="commercial" {{ old('role') == 'commercial' ? 'selected' : '' }}>Commercial</option>
+        <option value="financier" {{ old('role') == 'financier' ? 'selected' : '' }}>Financier</option>
     </select>
     <x-input-error :messages="$errors->get('role')" class="mt-2" />
     </div>
