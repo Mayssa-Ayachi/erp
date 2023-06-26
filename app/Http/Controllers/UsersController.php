@@ -19,7 +19,11 @@ Class UsersController extends Controller
             'password' => Hash::make($request->password),
             'role'=> $request->role,
         ]);
-        
+   
         return back();
+    }
+
+    public function showpayment(){
+        return view('addpayment');
     }
 }

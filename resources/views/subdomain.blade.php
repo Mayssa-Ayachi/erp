@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Create an Id and Subdomain for a new tenant</title>
+    <title>Commercial</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
@@ -21,7 +21,7 @@
           <label for="subdomain">Subdomain</label>
           <input type="text" id="subdomain" name="subdomain" class="form-control">
           <label for="subdomain">Choose a package</label>
-          <select id="package" name="package">
+          <select id="package" class="block mt-2 w-full"  name="package">
             @foreach ($package as $package)
               <option value="{{ $package->name }}">{{ $package->name }}</option>
             @endforeach

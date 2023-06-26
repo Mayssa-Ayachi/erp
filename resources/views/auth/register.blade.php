@@ -47,7 +47,7 @@
         <option value="admin" {{ old('role') == 'admin' ? 'selected' : '' }}>Admin</option>
         <option value="support" {{ old('role') == 'support' ? 'selected' : '' }}>Support</option>
         <option value="commercial" {{ old('role') == 'commercial' ? 'selected' : '' }}>Commercial</option>
-        <option value="financier" {{ old('role') == 'financier' ? 'selected' : '' }}>Financier</option>
+        <option value="financier" {{ old('role') == 'financier' ? 'selected' : '' }}>Finance</option>
     </select>
     <x-input-error :messages="$errors->get('role')" class="mt-2" />
     </div>
