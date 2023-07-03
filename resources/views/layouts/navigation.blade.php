@@ -15,6 +15,15 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
+
+                    @if(Auth::user()->role == 'commercial')
+                    <!-- <a href="{{ route('subdomain.showpage') }}">
+                        Organization
+                    </a> -->
+                    <x-nav-link :href="route('subdomain.showpage')" :active="request()->routeIs('commercial')">
+                    Organization
+                    </x-nav-link>
+                    @endif
                 </div>
             </div>
 

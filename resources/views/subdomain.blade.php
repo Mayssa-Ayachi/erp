@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Create an Id and Subdomain for a new tenant</title>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
+
+
+@extends('layouts.app')
+@section('css')
 <style>
   .card {
     width: 50%; 
@@ -13,6 +9,8 @@
     margin-top: 20vh;
   }
 </style>  
+@endsection
+@section('content')
     <div class="card">
     <div class="card-body">
       <form  action="{{ route('subdomain.store') }}" method="post">
@@ -30,5 +28,4 @@
         <button type="submit" class="btn btn-dark">Submit</button>
       </form>
   </div>
-</body>
-</html>
+  @endsection
