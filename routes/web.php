@@ -1,6 +1,5 @@
 <?php
 
-
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SubdomainController;
 use App\Http\Controllers\PackageController;
@@ -19,12 +18,18 @@ use App\Http\Controllers\ProfileController;
 */
 
 Route::get('/', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    return redirect()->route('profile.edit');
+})->middleware(['auth', 'verified'])->name('profile.edit');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
+// =========== Elimination du /dashboard actuellement ===============
+// =========== Le code demeure existant =============================
+// =========== En cas de besoin future pour un page d'accueil =======
+// =========== pour chaque utilisateur, le code est là ==============
+
+//Route::get('/dashboard', function () {
+//    return view('dashboard');
+//})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth','verified','role:admin')->group(function () {
     Route::get('/users', [UsersController::class, 'show'])->name('showusers');
