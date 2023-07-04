@@ -32,7 +32,7 @@
             <td>{{ $user->email }}</td>
             <td>{{ $user->password }}</td>
             <td>
-              <form action="{{ route('payment.destroy', $payment->id) }}" method="POST">
+              <form action="{{ route('showusers.destroy', $user->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-dark">Delete</button>
@@ -42,7 +42,7 @@
         @endforeach
     </tbody>
 </table>
-<a href="{{ route('payment.showinfo') }}" class="btn btn-light ml-4">Add a payment</a>
+<a href="{{ route('register') }}" class="btn btn-light ml-4">Add a user</a>
 </div>  
 </body>
 </html>

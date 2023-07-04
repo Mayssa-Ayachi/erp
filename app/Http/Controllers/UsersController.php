@@ -23,7 +23,18 @@ Class UsersController extends Controller
         return back();
     }
 
-    public function showpayment(){
-        return view('addpayment');
+    public function show(){
+        $User = User::all(); 
+        return view('userslist', ['user' => $User]);
+        return view('userslist');
+    }
+
+    
+    public function destroy($id)
+    {
+        $User = User::findOrFail($id);
+        $User->delete();
+
+        return redirect()->back()->with('success', 'User deleted successfully.');
     }
 }

@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SubdomainController;
 use App\Http\Controllers\PackageController;
 use App\Http\Controllers\PaymentController;
-
+use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ProfileController;
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +25,11 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth','verified','role:admin')->group(function () {
+    Route::get('/users', [UsersController::class, 'show'])->name('showusers');
+    Route::delete('/users', [UsersController::class, 'destroy'])->name('showusers.destroy');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
