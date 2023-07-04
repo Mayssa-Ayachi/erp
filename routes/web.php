@@ -39,7 +39,7 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware('auth','verified','role:commercial')->group(function () {
     Route::get('/commercial',[SubdomainController::class,'showpage'])->name('subdomain.showpage');
-    Route::get('/commercial',[SubdomainController::class,'showForm'])->name('subdomain.showForm');
+    Route::get('/commercials',[SubdomainController::class,'showForm'])->name('subdomain.showForm');
     Route::post('subdomain',[SubdomainController::class,'store'])->name('subdomain.store');
     
 });
