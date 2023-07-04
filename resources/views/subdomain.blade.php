@@ -24,7 +24,7 @@
       <form  action="{{ route('subdomain.store') }}" method="post">
        @csrf
         <div class="form-group">
-          <label for="subdomain">Subdomain</label>
+          <label for="subdomain">Organization</label>
           <input type="text" id="subdomain" name="subdomain" class="form-control">
           <label for="subdomain">Choose a package</label>
           <select id="package" class="block mt-2 w-full"  name="package">

@@ -6,20 +6,24 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
+@extends('layouts.app')
+@section('css')
 <style>
   .card {
     width: 50%; 
     margin: auto;
-    margin-top: 20vh;
+    margin-top: 10vh;
   }
 </style>  
+@endsection
+@section('content')
     <div class="card">
     <div class="card-body">
       <form  action="{{ route('payment.store') }}" method="post">
        @csrf
        <div class="form-group">
 
-          <label for="tenant_id" class="block mt-1 w-full">Tenant</label>
+          <label for="tenant_id" class="block mt-1 w-full">Organization</label>
           <select id="tenant_id" name="tenant_id">
             @foreach ($tenant as $tenant)
               <option value="{{ $tenant->id }}">{{ $tenant->id }}</option>
@@ -52,6 +56,7 @@
       </form>
   </div>
 </div>  
+@endsection
 </body>
 </html>
 

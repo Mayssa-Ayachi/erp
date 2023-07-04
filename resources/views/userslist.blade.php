@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-
+@extends('layouts.app')
+@section('css')
 @csrf
 <style>
   .custom-table {
@@ -14,7 +15,8 @@
     margin: auto;
   }
 </style> 
-
+@endsection
+@section('content')
 <table class="table custom-table">
   <thead>
     <tr>
@@ -43,6 +45,7 @@
     </tbody>
 </table>
 <a href="{{ route('register') }}" class="btn btn-light ml-4">Add a user</a>
-</div>  
+</div> 
+@endsection 
 </body>
 </html>

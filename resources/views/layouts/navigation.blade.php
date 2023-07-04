@@ -17,13 +17,37 @@
                     </x-nav-link>
 
                     @if(Auth::user()->role == 'commercial')
-                    <!-- <a href="{{ route('subdomain.showpage') }}">
-                        Organization
-                    </a> -->
                     <x-nav-link :href="route('subdomain.showpage')" :active="request()->routeIs('commercial')">
                     Organization
                     </x-nav-link>
                     @endif
+
+                    @if(Auth::user()->role == 'admin')
+                    <x-nav-link :href="route('showusers')" :active="request()->routeIs('admin')">
+                    Users List
+                    </x-nav-link>
+                    @endif
+
+                    @if(Auth::user()->role == 'financier')
+                    <x-nav-link :href="route('payment.show')" :active="request()->routeIs('financier')">
+                    Payment
+                    </x-nav-link>
+                    <x-nav-link :href="route('payment.showinfo')" :active="request()->routeIs('financier')">
+                    Add a payment
+                    </x-nav-link>
+                    @endif
+
+                    @if(Auth::user()->role == 'support')
+                    <x-nav-link :href="route('package.show')" :active="request()->routeIs('support')">
+                    Packages
+                    </x-nav-link>
+                    <x-nav-link :href="route('package.showaddpackage')" :active="request()->routeIs('financier')">
+                    Add a package
+                    </x-nav-link>
+                    @endif
+
+
+                    
                 </div>
             </div>
 

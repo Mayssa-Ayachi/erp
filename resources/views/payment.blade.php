@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-
+@extends('layouts.app')
+@section('css')
 @csrf
 <style>
   .custom-table {
@@ -14,11 +15,12 @@
     margin: auto;
   }
 </style> 
-
+@endsection
+@section('content')
 <table class="table custom-table">
   <thead>
     <tr>
-      <th scope="col">Tenant</th>
+      <th scope="col">Organization</th>
       <th scope="col">Package</th>
       <th scope="col">Type</th>
       <th scope="col">Paid</th>
@@ -46,7 +48,8 @@
         @endforeach
     </tbody>
 </table>
-<a href="{{ route('payment.showinfo') }}" class="btn btn-light ml-4">Add a payment</a>
+<!--<a href="{{ route('payment.showinfo') }}" class="btn btn-light ml-4">Add a payment</a>-->
 </div>  
+@endsection
 </body>
 </html>

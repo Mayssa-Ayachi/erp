@@ -38,10 +38,9 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware('auth','verified','role:commercial')->group(function () {
-    Route::get('/commercial',[SubdomainController::class,'showpage'])->name('subdomain.showpage');
-    Route::get('/commercials',[SubdomainController::class,'showForm'])->name('subdomain.showForm');
+    Route::get('/commercial/add_organizations',[SubdomainController::class,'showpage'])->name('subdomain.showpage');
+    Route::get('/commercials/add_organizations',[SubdomainController::class,'showForm'])->name('subdomain.showForm');
     Route::post('subdomain',[SubdomainController::class,'store'])->name('subdomain.store');
-    
 });
 
 Route::middleware('auth','verified','role:support')->group(function () {
@@ -57,7 +56,7 @@ Route::middleware('auth','verified','role:financier')->group(function () {
     Route::get('/finance/add_payment',[PaymentController::class,'showinfo'])->name('payment.showinfo');
     Route::post('/finance/add_payment',[PaymentController::class,'store'])->name('payment.store');
 
-    Route::get('/finance/payments',[PaymentController::class,'showlistpayment'])->name('payment.showlistpayment');
+    /*Route::get('/finance/payments',[PaymentController::class,'showlistpayment'])->name('payment.showlistpayment');*/
     Route::get('/finance/payments',[PaymentController::class,'show'])->name('payment.show');
     Route::delete('/finance/payments/{id}', [PaymentController::class, 'destroy'])->name('payment.destroy'); 
 });

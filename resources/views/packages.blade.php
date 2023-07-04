@@ -6,7 +6,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-
+@extends('layouts.app')
+@section('css')
 @csrf
 
 <style>
@@ -15,7 +16,8 @@
     margin: auto;
   }
 </style> 
-
+@endsection
+@section('content')
 <table class="table custom-table">
   <thead>
     <tr>
@@ -43,7 +45,8 @@
         @endforeach
     </tbody>
 </table>
-<a href="{{ route('package.showaddpackage') }}" class="btn btn-light ml-4">Add a package</a>
-</div>  
+<!--<a href="{{ route('package.showaddpackage') }}" class="btn btn-light ml-4">Add a package</a>-->
+</div> 
+@endsection 
 </body>
 </html>

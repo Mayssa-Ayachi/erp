@@ -23,14 +23,15 @@ Class PaymentController extends Controller
         return view('addpayment');
     }
 
-    public function showlistpayment(){
+    /*public function showlistpayment(){
         return view('payment');
-    }
+    }*/
 
     public function show()
     {
         $Payment = Payment::all(); 
         return view('payment', ['payment' => $Payment]);
+        return view('payment');
     }
 
     public function showinfo()
