@@ -16,6 +16,7 @@ class CreateTenantpackagesTable extends Migration
         Schema::create('tenantpackages', function (Blueprint $table) {
             $table->increments('id');
             $table->string('tenant_package');
+            $table->string('tenant_email');
             $table->string('tenant_id');
             $table->timestamps();
             $table->foreign('tenant_package')->references('name')->on('packagesdetails')->onUpdate('cascade')->onDelete('cascade');
