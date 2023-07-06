@@ -9,5 +9,6 @@ class Tenantpackage extends Model
     protected $table = 'tenantpackages';
 
     protected $fillable = ['tenant_id',
-    'tenant_package'];
+    'tenant_package',
+    'tenant_email'];
 }

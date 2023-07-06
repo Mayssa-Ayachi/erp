@@ -26,6 +26,8 @@
         <div class="form-group">
           <label for="subdomain">Organization</label>
           <input type="text" id="subdomain" name="subdomain" class="form-control">
+          <label for="subdomain">Email</label>
+          <input type="text" id="email" name="email" class="form-control">
           <label for="subdomain">Choose a package</label>
           <select id="package" class="block mt-2 w-full"  name="package">
             @foreach ($package as $package)
