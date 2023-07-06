@@ -26,7 +26,7 @@ Route::middleware([
     PreventAccessFromCentralDomains::class,
 ])->group(function () {
     Route::get('/', function () {
-        dd(\App\Models\Usertenant::all());
+        dd(\App\Models\Userstenant::all());
     });
 
     Route::get('users/create',[UserstenantController::class,'create'])->name('userstenant.create');
