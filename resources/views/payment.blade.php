@@ -3,6 +3,7 @@
 <head>
     <title>Payments</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
@@ -12,6 +13,11 @@
 <style>
   .custom-table {
     width: 50%; 
+    margin: auto;
+  }
+  .alert {
+    width: 50%;
+    z-index: 9999;
     margin: auto;
   }
 </style> 
@@ -41,7 +47,8 @@
               <form action="{{ route('payment.destroy', $payment->id) }}" method="POST">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-dark">Delete</button>
+                <button type="submit" class="btn btn-outline-dark"
+                >Delete</button>
                 </form>
             </td>
         </tr>
@@ -49,6 +56,26 @@
     </tbody>
 </table>
 <!--<a href="{{ route('payment.showinfo') }}" class="btn btn-light ml-4">Add a payment</a>-->
+@if (session('success'))
+    <div class="alert alert-success" id="customAlert">
+        {{ session('success') }}
+    </div>
+    <script>
+        $(document).ready(function() {
+            setTimeout(function() {$('#customAlert').fadeOut();}, 7000); 
+        });
+    </script>
+@endif
+@if (session('failed'))
+    <div class="alert alert-danger" id="customAlert">
+        {{ session('failed') }}
+    </div>
+    <script>
+        $(document).ready(function() {
+            setTimeout(function() {$('#customAlert').fadeOut();}, 7000); 
+        });
+    </script>
+@endif
 </div>  
 @endsection
 </body>

@@ -1,5 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add a user</title>
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    
 @extends('layouts.app')
 @section('content')
+<!--@section('css')
+<style>
+  .alert {
+    width: 50%;
+    z-index: 9999;
+    margin: auto;
+    margin-bottom: 1vh;
+  }
+</style> 
+@endsection 
+@if (session('success'))
+    <div class="alert alert-success" id="customAlert">
+        {{ session('success') }}
+    </div>
+    <script>
+        $(document).ready(function() {
+            setTimeout(function() {$('#customAlert').fadeOut();}, 7000); 
+        });
+    </script>
+@endif
+@if (session('failed'))
+    <div class="alert alert-danger" id="customAlert">
+        {{ session('failed') }}
+    </div>
+    <script>
+        $(document).ready(function() {
+            setTimeout(function() {$('#customAlert').fadeOut();}, 7000); 
+        });
+    </script>
+@endif-->
 <x-guest-layout>
     <form method="POST" action="{{ route('register') }}">
         @csrf
@@ -55,9 +95,9 @@
     </div>
 
         <div class="flex items-center justify-end mt-4">
-            <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
+            <!--<a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
                 {{ __('Already registered?') }}
-            </a>
+            </a>-->
 
             <x-primary-button class="ml-4">
                 {{ __('Register') }}
@@ -67,3 +107,5 @@
     </form>
 </x-guest-layout>
 @endsection 
+</body>
+</html>

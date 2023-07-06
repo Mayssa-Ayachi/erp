@@ -2,7 +2,8 @@
 <html>
 <head>
     <title>New payment</title>
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="{{ csrf_token() }}">   
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
@@ -12,7 +13,12 @@
   .card {
     width: 50%; 
     margin: auto;
-    margin-top: 10vh;
+    margin-top: 5vh;
+  }
+  .alert {
+    width: 50%;
+    z-index: 9999;
+    margin: auto;
   }
 </style>  
 @endsection
@@ -52,10 +58,30 @@
           <label for="end" class="block mt-1 w-full">End access</label>
           <input type="date" id="end" name="end" /><br>
         </div>
-        <button type="submit" class="btn btn-dark">Submit</button>
+        <button type="submit" class="btn btn-outline-dark">Submit</button>
       </form>
   </div>
 </div>  
+@if (session('success'))
+    <div class="alert alert-success" id="customAlert">
+        {{ session('success') }}
+    </div>
+    <script>
+        $(document).ready(function() {
+            setTimeout(function() {$('#customAlert').fadeOut();}, 7000); 
+        });
+    </script>
+@endif
+@if (session('failed'))
+    <div class="alert alert-danger" id="customAlert">
+        {{ session('failed') }}
+    </div>
+    <script>
+        $(document).ready(function() {
+            setTimeout(function() {$('#customAlert').fadeOut();}, 7000); 
+        });
+    </script>
+@endif
 @endsection
 </body>
 </html>

@@ -33,7 +33,7 @@ Route::get('/', function () {
 
 Route::middleware('auth','verified','role:admin')->group(function () {
     Route::get('/users', [UsersController::class, 'show'])->name('showusers');
-    Route::delete('/users', [UsersController::class, 'destroy'])->name('showusers.destroy');
+    Route::delete('/users/{id}', [UsersController::class, 'destroy'])->name('showusers.destroy');
 });
 
 Route::middleware('auth')->group(function () {

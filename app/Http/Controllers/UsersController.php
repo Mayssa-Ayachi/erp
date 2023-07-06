@@ -31,10 +31,13 @@ Class UsersController extends Controller
 
     
     public function destroy($id)
-    {
+    {   try {
         $User = User::findOrFail($id);
         $User->delete();
-
-        return redirect()->back()->with('success', 'User deleted successfully.');
-    }
-}
+        session()->flash('success', 'The user has been successfully created.');
+        return redirect()->back();
+    } catch (\Exception $e) {
+        session()->flash('failed', 'An error occurred while creating the user.');
+        return redirect()->back();
+        }
+    }}

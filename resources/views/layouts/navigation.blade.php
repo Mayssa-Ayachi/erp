@@ -26,6 +26,9 @@
                     <x-nav-link :href="route('showusers')" :active="request()->routeIs('admin')">
                     Users List
                     </x-nav-link>
+                    <x-nav-link :href="route('register')" :active="request()->routeIs('admin')">
+                    Add a user
+                    </x-nav-link>
                     @endif
 
                     @if(Auth::user()->role == 'financier')
