@@ -7,10 +7,23 @@
 </head>
 <body>
 
-  
+<style>
+  .card {
+    width: 50%; 
+    margin: auto;
+    margin-top: 10vh;
+  }
+  .alert {
+    width: 50%;
+    z-index: 9999;
+    margin: auto;
+  }
+</style> 
+
+    <div class="card">
     <div class="card-body">
-      <form  action="{{ route('users.store') }}" method="post">
-       @csrf
+      <form  action="{{ route('userstenant.store') }}" method="post">
+      @csrf
         <div class="form-group">
           <label for="name">Name</label>
           <input type="text" id="name" name="name" class="form-control">
@@ -23,9 +36,9 @@
           <label for="password">Password</label>
           <input type="text" id="password" name="password" class="form-control">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-dark">Submit</button>
       </form>
   </div>
-</div>  
+</div> 
 </body>
 </html>

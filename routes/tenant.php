@@ -5,7 +5,7 @@ declare(strict_types=1);
 use Illuminate\Support\Facades\Route;
 use Stancl\Tenancy\Middleware\InitializeTenancyByDomain;
 use Stancl\Tenancy\Middleware\PreventAccessFromCentralDomains;
-use App\Http\Controllers\UsersController;
+use App\Http\Controllers\UserstenantController;
 
 
 /*
@@ -26,10 +26,10 @@ Route::middleware([
     PreventAccessFromCentralDomains::class,
 ])->group(function () {
     Route::get('/', function () {
-        dd(\App\Models\User::all());
+        dd(\App\Models\Userstenant::all());
     });
 
-    Route::get('users/create',[UsersController::class,'create'])->name('users.create');
-    Route::post('users/store',[UsersController::class,'store'])->name('users.store');
+    Route::get('users/create',[UserstenantController::class,'create'])->name('userstenant.create');
+    Route::post('users/store',[UserstenantController::class,'store'])->name('userstenant.store');
 
 });

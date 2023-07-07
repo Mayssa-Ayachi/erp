@@ -46,6 +46,7 @@ Route::middleware('auth','verified','role:commercial')->group(function () {
     Route::get('/commercial/add_organizations',[SubdomainController::class,'showpage'])->name('subdomain.showpage');
     Route::get('/commercials/add_organizations',[SubdomainController::class,'showForm'])->name('subdomain.showForm');
     Route::post('subdomain',[SubdomainController::class,'store'])->name('subdomain.store');
+    /*Route::post('/commercial/email',[EmailController::class,'send'])->name('subdomain.send');*/
 });
 
 Route::middleware('auth','verified','role:support')->group(function () {
