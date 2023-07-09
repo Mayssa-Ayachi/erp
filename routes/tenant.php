@@ -49,8 +49,9 @@ Route::middleware([
         Route::post('reset-password', [NewPasswordController::class, 'store'])
                     ->name('password.store');
         });
+
     
-    Route::middleware('authTenant','web',
+    Route::middleware('web',
     InitializeTenancyByDomain::class,
     PreventAccessFromCentralDomains::class)->group(function () {
 

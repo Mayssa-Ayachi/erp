@@ -4,7 +4,6 @@ namespace App\Http\Controllers\AuthTenant;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
-use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -17,7 +16,7 @@ class AuthenticatedSessionTenantController extends Controller
      */
     public function create(): View
     {
-        return view('auth.login');
+        return view('auth.logintenant');
     }
 
     /**
@@ -25,9 +24,10 @@ class AuthenticatedSessionTenantController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticateTenant();
+        //dd($request);
+        //$request->authenticateTenant();
 
-        $request->session()->regenerate();
+        //$request->session()->regenerate();
 
         return redirect()->intended('/users/create');
     }
