@@ -22,30 +22,18 @@ Route::middleware([
     InitializeTenancyByDomain::class,
     PreventAccessFromCentralDomains::class,
 ])->group(function () {
-    Route::get('/', function () {
-        dd(\App\Models\Userstenant::all());
-    });
-
-    Route::middleware('authTenant','verified')->group(function () {
-    
-       Route::get('users/create',[UserstenantController::class,'create'])->name('userstenant.create');
-        
-        Route::post('users/store',[UserstenantController::class,'store'])->name('userstenant.store');
-    });
 
     Route::get('register', [RegisteredUsertenantController::class, 'create'])
     ->name('register');
     Route::post('register', [RegisteredUsertenantController::class, 'store']);
+
     /*Route::middleware('auth','verified','role:admin')->group(function () {
         Route::get('register', [RegisteredUserController::class, 'create'])
                     ->name('register');
         Route::post('register', [RegisteredUserController::class, 'store']);
     });*/
     
-    Route::middleware('guest')->group(function () {
-    
-        Route::get('login', [AuthenticatedSessionTenantController::class, 'create'])
-                    ->name('logintenant');
+        Route::get('login', [AuthenticatedSessionTenantController::class, 'create'])->name('logintenant');
     
         Route::post('login', [AuthenticatedSessionTenantController::class, 'store']);
     
@@ -60,9 +48,17 @@ Route::middleware([
     
         Route::post('reset-password', [NewPasswordController::class, 'store'])
                     ->name('password.store');
-    });
+        });
     
-    Route::middleware('auth')->group(function () {
+    Route::middleware('authTenant','web',
+    InitializeTenancyByDomain::class,
+    PreventAccessFromCentralDomains::class)->group(function () {
+
+        Route::get('users/create',[UserstenantController::class,'create'])->name('userstenant.create');
+         
+        Route::post('users/store',[UserstenantController::class,'store'])->name('userstenant.store');
+
+
         Route::get('verify-email', EmailVerificationPromptController::class)
                     ->name('verification.notice');
     
@@ -83,9 +79,8 @@ Route::middleware([
     
         Route::post('logout', [AuthenticatedSessionTenantController::class, 'destroy'])
                     ->name('logout');
-    });
     
-});
+      });
 
 
 

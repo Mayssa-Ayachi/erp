@@ -18,7 +18,7 @@ Class SubdomainController extends Controller
         $tenant->domains()->create(['domain' => $request->subdomain .'.localhost']);
         $tenant->tenantpackages()->create(['tenant_package' => $request->input('package'),
         'tenant_email' => $request->input('email'),]);
-        $adress = $request->subdomain .'.localhost:8000/users/create';
+        $adress = $request->subdomain .'.localhost:8000/register';
         $name = $request->subdomain;
         $package = $request->input('package');
         Mail::to($request->input('email'))->send(new Email($adress,$name,$package));

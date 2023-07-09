@@ -2,20 +2,29 @@
 
 namespace App\Http\Middleware;
 
-use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Closure;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redirect;
 
-class AuthenticateTenant extends Middleware
+class AuthenticateTenant
 {
     /**
-     * Get the path the user should be redirected to when they are not authenticated.
+     * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return string|null
+     * @param  \Closure  $next
+     * @return mixed
      */
-    protected function redirectTo($request)
+    public function handle($request, Closure $next)
     {
         if (! $request->expectsJson()) {
-            return route('logintenant');
+            return Redirect::route('logintenant');
         }
+
+        if (Auth::user()->name != $request->subdomain) {
+            return Redirect::route('logintenant');
+        }
+
+        return $next($request);
     }
 }

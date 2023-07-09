@@ -25,11 +25,11 @@ class AuthenticatedSessionTenantController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
+        $request->authenticateTenant();
 
         $request->session()->regenerate();
 
-        return redirect('/users/create');
+        return redirect()->intended('/users/create');
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\AuthTenant;
 
 use App\Http\Controllers\Controller;
+use App\Models\Userstenant;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
