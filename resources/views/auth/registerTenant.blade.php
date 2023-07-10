@@ -49,12 +49,20 @@
             <x-input-error :messages="$errors->get('name')" class="mt-2" />
         </div>
 
-        <!-- Email Address -->
+        <!-- Email Address--> 
         <div class="mt-4">
             <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autocomplete="username" />
+            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="$email" required autocomplete="username" disabled />
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
+
+        
+
+        <!--<div class="mt-4">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" class="form-control" value="{{ $email }}" disabled>
+        <input type="hidden" name="tenant_email" value="{{ $email }}">
+        </div>-->
 
         <!-- Password -->
         <div class="mt-4">

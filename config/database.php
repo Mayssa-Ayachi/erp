@@ -35,6 +35,21 @@ return [
 
     'connections' => [
 
+        'erp' => [
+            'driver' => 'mysql',
+            'host' => env('ERP_DB_HOST', '127.0.0.1'),
+            'port' => env('ERP_DB_PORT', '3306'),
+            'database' => env('ERP_DB_DATABASE', 'erp'),
+            'username' => env('ERP_DB_USERNAME', 'root'),
+            'password' => env('ERP_DB_PASSWORD', ''),
+            'unix_socket' => env('ERP_DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => false,
+            'engine' => null,
+        ],
+
         'sqlite' => [
             'driver' => 'sqlite',
             'url' => env('DATABASE_URL'),

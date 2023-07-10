@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tenantpackage extends Model
 {
+    protected $connection = 'erp';
     protected $table = 'tenantpackages';
 
     protected $fillable = ['tenant_id',
